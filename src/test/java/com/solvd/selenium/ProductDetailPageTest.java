@@ -3,6 +3,10 @@ package com.solvd.selenium;
 import com.solvd.selenium.pages.common.CategoryPageBase;
 import com.solvd.selenium.pages.common.HomePageBase;
 import com.solvd.selenium.pages.common.ProductPageBase;
+import com.zebrunner.agent.core.annotation.TestLabel;
+import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
+import com.zebrunner.carina.core.registrar.tag.Priority;
+import com.zebrunner.carina.core.registrar.tag.TestPriority;
 
 import java.lang.invoke.MethodHandles;
 
@@ -28,6 +32,9 @@ public class ProductDetailPageTest extends BaseTest {
      * add to bag button, favorite button, and reviews section.
      */
     @Test(description = "Verify product detail page information")
+    @MethodOwner(owner = "igromov")
+    @TestPriority(Priority.P1)
+    @TestLabel(name = "feature", value = { "web", "regression" })
     @Parameters({ "category", "subCategory" })
     public void testProductDetailPage(
             @Optional("women") String category,

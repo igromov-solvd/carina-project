@@ -2,6 +2,10 @@ package com.solvd.selenium;
 
 import com.solvd.selenium.pages.common.HomePageBase;
 import com.solvd.selenium.pages.common.SearchResultsPageBase;
+import com.zebrunner.agent.core.annotation.TestLabel;
+import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
+import com.zebrunner.carina.core.registrar.tag.Priority;
+import com.zebrunner.carina.core.registrar.tag.TestPriority;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +20,9 @@ public class ProductSearchTest extends BaseTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
     @Test(description = "Search for a product and validate results")
+    @MethodOwner(owner = "igromov")
+    @TestPriority(Priority.P3)
+    @TestLabel(name = "feature", value = { "web", "regression" })
     public void testProductSearch() {
         String searchTerm = "jeans";
         LOGGER.info("Starting product search test for: {}", searchTerm);

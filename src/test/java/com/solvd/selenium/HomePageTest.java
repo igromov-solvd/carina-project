@@ -1,6 +1,10 @@
 package com.solvd.selenium;
 
 import com.solvd.selenium.pages.common.HomePageBase;
+import com.zebrunner.agent.core.annotation.TestLabel;
+import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
+import com.zebrunner.carina.core.registrar.tag.Priority;
+import com.zebrunner.carina.core.registrar.tag.TestPriority;
 
 import java.lang.invoke.MethodHandles;
 import java.util.Arrays;
@@ -30,6 +34,9 @@ public class HomePageTest extends BaseTest {
      * favorites icon, shopping bag icon, checkout button, and main menu.
      */
     @Test(description = "Verify homepage load and essential elements")
+    @MethodOwner(owner = "igromov")
+    @TestPriority(Priority.P1)
+    @TestLabel(name = "feature", value = { "web", "regression" })
     public void testHomePageElements() {
         LOGGER.info("Starting homepage elements verification test");
 
