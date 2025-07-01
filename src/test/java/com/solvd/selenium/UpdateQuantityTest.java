@@ -4,6 +4,10 @@ import com.solvd.selenium.pages.common.CategoryPageBase;
 import com.solvd.selenium.pages.common.HomePageBase;
 import com.solvd.selenium.pages.common.ProductPageBase;
 import com.solvd.selenium.pages.common.ShoppingBagPageBase;
+import com.zebrunner.agent.core.annotation.TestLabel;
+import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
+import com.zebrunner.carina.core.registrar.tag.Priority;
+import com.zebrunner.carina.core.registrar.tag.TestPriority;
 
 import java.lang.invoke.MethodHandles;
 
@@ -27,6 +31,9 @@ public class UpdateQuantityTest extends BaseTest {
      * and verifying that the subtotal reflects the new quantity.
      */
     @Test(description = "Verify update quantity in bag functionality")
+    @MethodOwner(owner = "igromov")
+    @TestPriority(Priority.P1)
+    @TestLabel(name = "feature", value = { "web", "regression" })
     @Parameters({ "category", "subCategory", "newQuantity" })
     public void testUpdateQuantity(
             @Optional("women") String category,

@@ -4,6 +4,10 @@ import com.solvd.selenium.pages.common.CategoryPageBase;
 import com.solvd.selenium.pages.common.HomePageBase;
 import com.solvd.selenium.pages.common.ProductPageBase;
 import com.solvd.selenium.pages.common.ShoppingBagPageBase;
+import com.zebrunner.agent.core.annotation.TestLabel;
+import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
+import com.zebrunner.carina.core.registrar.tag.Priority;
+import com.zebrunner.carina.core.registrar.tag.TestPriority;
 import com.zebrunner.carina.utils.R;
 
 import java.lang.invoke.MethodHandles;
@@ -28,8 +32,10 @@ public class RemoveFromBagTest extends BaseTest {
      * and verifying that the bag is empty.
      */
     @Test(description = "Verify remove product from bag functionality")
+    @MethodOwner(owner = "igromov")
+    @TestPriority(Priority.P1)
+    @TestLabel(name = "feature", value = { "web", "regression" })
     @Parameters({ "category", "subCategory" })
-
     public void testRemoveFromBag(
             @Optional("women") String category,
             @Optional("All Dresses") String subCategory) {

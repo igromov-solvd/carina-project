@@ -2,6 +2,10 @@ package com.solvd.selenium;
 
 import com.solvd.selenium.pages.common.HomePageBase;
 import com.solvd.selenium.pages.common.SearchResultsPageBase;
+import com.zebrunner.agent.core.annotation.TestLabel;
+import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
+import com.zebrunner.carina.core.registrar.tag.Priority;
+import com.zebrunner.carina.core.registrar.tag.TestPriority;
 
 import java.lang.invoke.MethodHandles;
 import java.util.List;
@@ -23,11 +27,13 @@ public class SearchFunctionalityTest extends BaseTest {
      * the search results page for relevant products, filters, and sorting options.
      */
     @Test(description = "Verify search functionality with valid product")
+    @MethodOwner(owner = "igromov")
+    @TestPriority(Priority.P1)
+    @TestLabel(name = "feature", value = { "web", "regression" })
     public void testValidProductSearch() {
         String searchTerm = "dress";
         LOGGER.info("Starting search functionality test for: {}", searchTerm);
 
-        
         HomePageBase homePage = navigateToHomePage();
         SearchResultsPageBase searchResultsPage = homePage.searchForProduct(searchTerm);
 

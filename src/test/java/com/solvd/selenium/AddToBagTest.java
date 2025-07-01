@@ -31,8 +31,8 @@ public class AddToBagTest extends BaseTest {
      * and verifying the bag contents.
      */
     @Test(description = "Verify add product to bag functionality")
-    @MethodOwner(owner = "qpsdemo")
-    @TestPriority(Priority.P3)
+    @MethodOwner(owner = "igromov")
+    @TestPriority(Priority.P1)
     @TestLabel(name = "feature", value = { "web", "regression" })
     @Parameters({ "category", "subCategory" })
     public void testAddToBag(
