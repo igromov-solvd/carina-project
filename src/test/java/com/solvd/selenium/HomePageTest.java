@@ -22,8 +22,8 @@ public class HomePageTest extends BaseTest {
 
     private static final List<String> EXPECTED_CATEGORIES = Arrays.asList(
             "women", "men", "boys", "girls", "home", "baby",
-            "furniture", "holiday", "brands", "beauty", "gifts",
-            "sports", "clearance");
+            "furniture", "holiday", "school", "brands", "beauty", "gifts",
+            "sports", "sale");
 
     /**
      * NEXT_001 - Verify Homepage Load and Essential Elements
@@ -50,7 +50,7 @@ public class HomePageTest extends BaseTest {
     }
 
     private void verifyDeliverySection(HomePageBase homePage) {
-        Assert.assertTrue(homePage.isDeliveryTitleVisible(), "Delivery title should be visible");
+        Assert.assertTrue(homePage.isDeliveryTitlePresent(), "Delivery title should be present");
         Assert.assertEquals(homePage.getDeliveryTitleText(),
                 "Next day delivery to home or free to store*",
                 "Delivery title text is incorrect");
@@ -58,14 +58,14 @@ public class HomePageTest extends BaseTest {
 
     private void verifyHeaderElements(HomePageBase homePage) {
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(homePage.isStoreLocatorVisible(), "Store Locator link should be visible");
-        softAssert.assertTrue(homePage.isHelpLinkVisible(), "Help link should be visible");
-        softAssert.assertTrue(homePage.isLogoVisible(), "Next logo should be visible");
-        softAssert.assertTrue(homePage.isSearchBarVisible(), "Search bar should be visible");
-        softAssert.assertTrue(homePage.isAccountIconVisible(), "Account icon should be visible");
-        softAssert.assertTrue(homePage.isFavoritesIconVisible(), "Favorites icon should be visible");
-        softAssert.assertTrue(homePage.isShoppingBagIconVisible(), "Shopping bag icon should be visible");
-        softAssert.assertTrue(homePage.isCheckoutButtonVisible(), "Checkout button should be visible");
+        softAssert.assertTrue(homePage.isStoreLocatorPresent(), "Store Locator link should be present");
+        softAssert.assertTrue(homePage.isHelpLinkPresent(), "Help link should be present");
+        softAssert.assertTrue(homePage.isLogoPresent(), "Next logo should be present");
+        softAssert.assertTrue(homePage.isSearchBarPresent(), "Search bar should be present");
+        softAssert.assertTrue(homePage.isAccountIconPresent(), "Account icon should be present");
+        softAssert.assertTrue(homePage.isFavoritesIconPresent(), "Favorites icon should be present");
+        softAssert.assertTrue(homePage.isShoppingBagIconPresent(), "Shopping bag icon should be present");
+        softAssert.assertTrue(homePage.isCheckoutButtonPresent(), "Checkout button should be present");
         softAssert.assertAll();
     }
 

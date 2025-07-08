@@ -56,15 +56,15 @@ public class ProductDetailPageTest extends BaseTest {
 
     private void verifyProductDetails(ProductPageBase productPage) {
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(productPage.isProductNameVisible(), "Product name should be visible");
-        softAssert.assertTrue(productPage.isProductPriceVisible(), "Product price should be visible");
-        softAssert.assertTrue(productPage.isProductDescriptionVisible(), "Product description should be visible");
-        softAssert.assertTrue(productPage.areProductImagesVisible(), "Product images should be visible");
-        softAssert.assertTrue(productPage.isSizeSelectionVisible(), "Size selection should be available");
-        softAssert.assertTrue(productPage.isColorSelectionVisible(), "Color selection should be available");
-        softAssert.assertTrue(productPage.isAddToBagButtonVisible(), "Add to Bag button should be visible");
-        softAssert.assertTrue(productPage.isFavouriteButtonVisible(), "Favourite button should be visible");
-        softAssert.assertTrue(productPage.hasReviewsSection(), "Reviews section should be visible if available");
+        softAssert.assertTrue(productPage.isProductNamePresent(), "Product name should be present");
+        softAssert.assertTrue(productPage.isProductPricePresent(), "Product price should be present");
+        softAssert.assertTrue(productPage.isProductDescriptionPresent(), "Product description should be present");
+        softAssert.assertTrue(productPage.areAllProductImagesPresent(), "Product images should be present");
+        softAssert.assertTrue(productPage.isSizeSelectorPresent(), "Size selection should be available");
+        softAssert.assertTrue(productPage.isColorSelectorPresent(), "Color selection should be available");
+        softAssert.assertTrue(productPage.isAddToBagButtonPresent(), "Add to Bag button should be present");
+        softAssert.assertTrue(productPage.isFavouriteButtonPresent(), "Favourite button should be present");
+        softAssert.assertTrue(productPage.isReviewsSectionPresent(), "Reviews section should be present if available");
         softAssert.assertAll();
     }
 }

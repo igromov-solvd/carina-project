@@ -41,8 +41,16 @@ public class CategoryPage extends CategoryPageBase {
     }
 
     @Override
-    public boolean areProductsVisible() {
-        return !products.isEmpty() && products.get(0).isDisplayed();
+    public boolean areAllProductsPresent() {
+        if (products.isEmpty()) {
+            return false;
+        }
+        for (ExtendedWebElement product : products) {
+            if (!product.isElementPresent()) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override

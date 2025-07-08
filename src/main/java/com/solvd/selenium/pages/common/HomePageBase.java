@@ -31,27 +31,27 @@ public abstract class HomePageBase extends AbstractPage {
 
     public abstract CategoryPageBase hoverOverMainCategoryAndClick(String category, String subCategory);
 
-    public abstract boolean isDeliveryTitleVisible();
+    public abstract boolean isDeliveryTitlePresent();
 
     public abstract String getDeliveryTitleText();
 
-    public abstract boolean isStoreLocatorVisible();
+    public abstract boolean isStoreLocatorPresent();
 
-    public abstract boolean isHelpLinkVisible();
+    public abstract boolean isHelpLinkPresent();
 
-    public abstract boolean isLogoVisible();
+    public abstract boolean isLogoPresent();
 
-    public abstract boolean isSearchBarVisible();
+    public abstract boolean isSearchBarPresent();
 
-    public abstract boolean isAccountIconVisible();
+    public abstract boolean isAccountIconPresent();
 
-    public abstract boolean isFavoritesIconVisible();
+    public abstract boolean isFavoritesIconPresent();
 
-    public abstract boolean isShoppingBagIconVisible();
+    public abstract boolean isShoppingBagIconPresent();
 
-    public abstract boolean isCheckoutButtonVisible();
+    public abstract boolean isCheckoutButtonPresent();
 
-    public abstract boolean isMainMenuVisible();
+    public abstract boolean areAllMainMenuItemsPresent();
 
     public abstract List<String> getMainMenuCategoriesList();
 }

@@ -25,61 +25,61 @@ public class ProductPage extends ProductPageBase {
     }
 
     @Override
-    public boolean isAddToBagConfirmationVisible() {
+    public boolean isAddToBagConfirmationPresent() {
         // TODO: implement logic
         return false;
     }
 
     @Override
-    public boolean isProductNameVisible() {
+    public boolean isProductNamePresent() {
         // TODO: implement logic
         return false;
     }
 
     @Override
-    public boolean isProductPriceVisible() {
+    public boolean isProductPricePresent() {
         // TODO: implement logic
         return false;
     }
 
     @Override
-    public boolean isProductDescriptionVisible() {
+    public boolean isProductDescriptionPresent() {
         // TODO: implement logic
         return false;
     }
 
     @Override
-    public boolean areProductImagesVisible() {
+    public boolean areAllProductImagesPresent() {
         // TODO: implement logic
         return false;
     }
 
     @Override
-    public boolean isSizeSelectionVisible() {
+    public boolean isSizeSelectorPresent() {
         // TODO: implement logic
         return false;
     }
 
     @Override
-    public boolean isColorSelectionVisible() {
+    public boolean isColorSelectorPresent() {
         // TODO: implement logic
         return false;
     }
 
     @Override
-    public boolean isAddToBagButtonVisible() {
+    public boolean isAddToBagButtonPresent() {
         // TODO: implement logic
         return false;
     }
 
     @Override
-    public boolean isFavouriteButtonVisible() {
+    public boolean isFavouriteButtonPresent() {
         // TODO: implement logic
         return false;
     }
 
     @Override
-    public boolean hasReviewsSection() {
+    public boolean isReviewsSectionPresent() {
         // TODO: implement logic
         return false;
     }
@@ -90,7 +90,7 @@ public class ProductPage extends ProductPageBase {
     }
 
     @Override
-    public boolean isCheckoutButtonVisible() {
+    public boolean isCheckoutButtonPresent() {
         // TODO: implement logic
         return false;
     }

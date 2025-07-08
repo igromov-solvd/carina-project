@@ -56,7 +56,7 @@ public class NavigationMenuTest extends BaseTest {
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(categoryPage.getPageTitle().toLowerCase(), expectedTitle.toLowerCase(),
                 "Category page title should match expected title");
-        softAssert.assertTrue(categoryPage.areProductsVisible(), "Products should be visible");
+        softAssert.assertTrue(categoryPage.areAllProductsPresent(), "All products should be present");
         softAssert.assertTrue(categoryPage.areFiltersVisible(), "Filters should be visible");
         softAssert.assertTrue(categoryPage.isSortingVisible(), "Sorting options should be visible");
         softAssert.assertAll();

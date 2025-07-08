@@ -38,16 +38,18 @@ public class SearchFunctionalityTest extends BaseTest {
         SearchResultsPageBase searchResultsPage = homePage.searchForProduct(searchTerm);
 
         // Verify search results page
-        Assert.assertTrue(searchResultsPage.getPageTitleText().toLowerCase().contains(searchTerm),
-                "Search results title should contain search term");
+        String pageTitle = searchResultsPage.getPageTitleText();
+        Assert.assertTrue(pageTitle.toLowerCase().contains(searchTerm),
+                String.format("Search results title should contain search term '%s'. Actual title: '%s'",
+                        searchTerm, pageTitle));
 
         // Verify product details visibility
         List<String> productTitles = searchResultsPage.getProductTitles();
         Assert.assertFalse(productTitles.isEmpty(), "Product titles should not be empty");
 
         // Verify filters and sorting options
-        Assert.assertTrue(searchResultsPage.areFiltersVisible(), "Filters should be visible");
-        Assert.assertTrue(searchResultsPage.isSortingVisible(), "Sorting options should be visible");
+        Assert.assertTrue(searchResultsPage.areFiltersPresent(), "Filters should be present");
+        Assert.assertTrue(searchResultsPage.isSortingPresent(), "Sorting options should be present");
 
         LOGGER.info("Search functionality test completed successfully");
     }

@@ -55,14 +55,14 @@ public class RemoveFromBagTest extends BaseTest {
         productPage.clickAddToBag();
 
         // Verify confirmation
-        Assert.assertTrue(productPage.isAddToBagConfirmationVisible(),
-                "Add to bag confirmation should be visible");
+        Assert.assertTrue(productPage.isAddToBagConfirmationPresent(),
+                "Add to bag confirmation should be present");
 
         // View bag from confirmation
         ShoppingBagPageBase shoppingBagPage = productPage.clickViewBagButton();
 
         // Remove item
-        shoppingBagPage.clickFirstBagItemRemoveButton();
+        shoppingBagPage.clickFirstItemRemoveButton();
 
         verifyEmptyBagState(shoppingBagPage);
 
@@ -78,12 +78,12 @@ public class RemoveFromBagTest extends BaseTest {
 
     private void verifyEmptyBagState(ShoppingBagPageBase shoppingBagPage) {
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(shoppingBagPage.isEmptyBagMessageVisible(),
+        softAssert.assertTrue(shoppingBagPage.isEmptyBagMessagePresent(),
                 "Bag should be empty after removal");
         softAssert.assertEquals(shoppingBagPage.getEmptyBagMessageText(), "Your bag is empty",
                 "Empty bag message is incorrect");
-        softAssert.assertTrue(shoppingBagPage.isContinueShoppingVisible(),
-                "`Continue Shopping` button should be visible");
+        softAssert.assertTrue(shoppingBagPage.isContinueShoppingButtonPresent(),
+                "`Continue Shopping` button should be present");
         softAssert.assertAll();
     }
 }

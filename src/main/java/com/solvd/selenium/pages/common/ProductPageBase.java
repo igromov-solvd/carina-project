@@ -13,29 +13,29 @@ public abstract class ProductPageBase extends AbstractPage {
 
     public abstract void selectFirstAvailableSize();
 
-    public abstract boolean isAddToBagConfirmationVisible();
+    public abstract boolean isAddToBagConfirmationPresent();
 
-    public abstract boolean isProductNameVisible();
+    public abstract boolean isProductNamePresent();
 
-    public abstract boolean isProductPriceVisible();
+    public abstract boolean isProductPricePresent();
 
-    public abstract boolean isProductDescriptionVisible();
+    public abstract boolean isProductDescriptionPresent();
 
-    public abstract boolean areProductImagesVisible();
+    public abstract boolean areAllProductImagesPresent();
 
-    public abstract boolean isSizeSelectionVisible();
+    public abstract boolean isSizeSelectorPresent();
 
-    public abstract boolean isColorSelectionVisible();
+    public abstract boolean isColorSelectorPresent();
 
-    public abstract boolean isAddToBagButtonVisible();
+    public abstract boolean isAddToBagButtonPresent();
 
-    public abstract boolean isFavouriteButtonVisible();
+    public abstract boolean isFavouriteButtonPresent();
 
-    public abstract boolean hasReviewsSection();
+    public abstract boolean isReviewsSectionPresent();
 
     public abstract void clickAddToBag();
 
-    public abstract boolean isCheckoutButtonVisible();
+    public abstract boolean isCheckoutButtonPresent();
 
     public abstract void clickCheckoutButton();
 }

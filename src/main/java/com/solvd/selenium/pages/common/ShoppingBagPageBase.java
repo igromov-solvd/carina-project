@@ -9,21 +9,21 @@ public abstract class ShoppingBagPageBase extends AbstractPage {
         super(driver);
     }
 
-    public abstract boolean isFirstBagItemVisible();
+    public abstract boolean isFirstItemPresent();
 
-    public abstract boolean isFirstBagItemPriceVisible();
+    public abstract boolean isFirstItemPricePresent();
 
-    public abstract boolean isFirstBagItemQuantityVisible();
+    public abstract boolean isFirstItemQuantityPresent();
 
-    public abstract boolean isFirstBagItemRemoveButtonVisible();
+    public abstract boolean isFirstItemRemoveButtonPresent();
 
-    public abstract void clickFirstBagItemRemoveButton();
+    public abstract void clickFirstItemRemoveButton();
 
-    public abstract boolean isEmptyBagMessageVisible();
+    public abstract boolean isEmptyBagMessagePresent();
 
     public abstract String getEmptyBagMessageText();
 
-    public abstract boolean isContinueShoppingVisible();
+    public abstract boolean isContinueShoppingButtonPresent();
 
     public abstract void clickContinueShopping();
 

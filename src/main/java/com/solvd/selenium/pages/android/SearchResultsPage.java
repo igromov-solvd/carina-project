@@ -38,13 +38,13 @@ public class SearchResultsPage extends SearchResultsPageBase {
     }
 
     @Override
-    public boolean areFiltersVisible() {
+    public boolean areFiltersPresent() {
         // TODO: implement logic
         return false;
     }
 
     @Override
-    public boolean isSortingVisible() {
+    public boolean isSortingPresent() {
         // TODO: implement logic
         return false;
     }

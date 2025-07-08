@@ -35,7 +35,7 @@ public class HomePage extends HomePageBase {
     }
 
     @Override
-    public boolean isDeliveryTitleVisible() {
+    public boolean isDeliveryTitlePresent() {
         // TODO: implement logic
         return false;
     }
@@ -47,55 +47,55 @@ public class HomePage extends HomePageBase {
     }
 
     @Override
-    public boolean isStoreLocatorVisible() {
+    public boolean isStoreLocatorPresent() {
         // TODO: implement logic
         return false;
     }
 
     @Override
-    public boolean isHelpLinkVisible() {
+    public boolean isHelpLinkPresent() {
         // TODO: implement logic
         return false;
     }
 
     @Override
-    public boolean isLogoVisible() {
+    public boolean isLogoPresent() {
         // TODO: implement logic
         return false;
     }
 
     @Override
-    public boolean isSearchBarVisible() {
+    public boolean isSearchBarPresent() {
         // TODO: implement logic
         return false;
     }
 
     @Override
-    public boolean isAccountIconVisible() {
+    public boolean isAccountIconPresent() {
         // TODO: implement logic
         return false;
     }
 
     @Override
-    public boolean isFavoritesIconVisible() {
+    public boolean isFavoritesIconPresent() {
         // TODO: implement logic
         return false;
     }
 
     @Override
-    public boolean isShoppingBagIconVisible() {
+    public boolean isShoppingBagIconPresent() {
         // TODO: implement logic
         return false;
     }
 
     @Override
-    public boolean isCheckoutButtonVisible() {
+    public boolean isCheckoutButtonPresent() {
         // TODO: implement logic
         return false;
     }
 
     @Override
-    public boolean isMainMenuVisible() {
+    public boolean areAllMainMenuItemsPresent() {
         // TODO: implement logic
         return false;
     }
