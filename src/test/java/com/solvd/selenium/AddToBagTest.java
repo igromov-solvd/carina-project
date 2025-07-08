@@ -53,21 +53,21 @@ public class AddToBagTest extends BaseTest {
         productPage.clickAddToBag();
 
         // Verify confirmation
-        Assert.assertTrue(productPage.isAddToBagConfirmationVisible(),
-                "Add to bag confirmation should be visible");
+        Assert.assertTrue(productPage.isAddToBagConfirmationPresent(),
+                "Add to bag confirmation should be present");
 
         // View bag from confirmation
         ShoppingBagPageBase shoppingBagPage = productPage.clickViewBagButton();
 
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(shoppingBagPage.isFirstBagItemVisible(),
-                "Bag item should be visible");
-        softAssert.assertTrue(shoppingBagPage.isFirstBagItemPriceVisible(),
-                "Price should be visible");
-        softAssert.assertTrue(shoppingBagPage.isFirstBagItemQuantityVisible(),
-                "Quantity should be visible");
-        softAssert.assertTrue(shoppingBagPage.isFirstBagItemRemoveButtonVisible(),
-                "Remove button should be visible");
+        softAssert.assertTrue(shoppingBagPage.isFirstItemPresent(),
+                "Bag item should be present");
+        softAssert.assertTrue(shoppingBagPage.isFirstItemPricePresent(),
+                "Price should be present");
+        softAssert.assertTrue(shoppingBagPage.isFirstItemQuantityPresent(),
+                "Quantity should be present");
+        softAssert.assertTrue(shoppingBagPage.isFirstItemRemoveButtonPresent(),
+                "Remove button should be present");
         softAssert.assertAll();
 
         LOGGER.info("Add to bag test completed successfully");

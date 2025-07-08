@@ -17,16 +17,16 @@ public class ShoppingBagPage extends ShoppingBagPageBase {
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
     @FindBy(css = "div[id='items'] > div:first-child")
-    private ExtendedWebElement firstBagItem;
+    private ExtendedWebElement firstItem;
 
     @FindBy(css = "div[id='items'] > div:first-child span[class='sbm-item-price']")
-    private ExtendedWebElement firstBagItemPrice;
+    private ExtendedWebElement firstItemPrice;
 
     @FindBy(css = "div[id='items'] > div:first-child div.qty-plusminus-control")
-    private ExtendedWebElement firstBagItemQuantity;
+    private ExtendedWebElement firstItemQuantity;
 
     @FindBy(css = "div[id='items'] > div:first-child a[class*='DeleteButton']")
-    private ExtendedWebElement firstBagItemRemoveButton;
+    private ExtendedWebElement firstItemRemoveButton;
 
     @FindBy(css = "div.sb-subtitle > span")
     private ExtendedWebElement emptyBagMessage;
@@ -48,33 +48,33 @@ public class ShoppingBagPage extends ShoppingBagPageBase {
     }
 
     @Override
-    public boolean isFirstBagItemVisible() {
-        return firstBagItem.isVisible();
+    public boolean isFirstItemPresent() {
+        return firstItem.isElementPresent();
     }
 
     @Override
-    public boolean isFirstBagItemPriceVisible() {
-        return firstBagItemPrice.isVisible();
+    public boolean isFirstItemPricePresent() {
+        return firstItemPrice.isElementPresent();
     }
 
     @Override
-    public boolean isFirstBagItemQuantityVisible() {
-        return firstBagItemQuantity.isVisible();
+    public boolean isFirstItemQuantityPresent() {
+        return firstItemQuantity.isElementPresent();
     }
 
     @Override
-    public boolean isFirstBagItemRemoveButtonVisible() {
-        return firstBagItemRemoveButton.isVisible();
+    public boolean isFirstItemRemoveButtonPresent() {
+        return firstItemRemoveButton.isElementPresent();
     }
 
     @Override
-    public void clickFirstBagItemRemoveButton() {
-        firstBagItemRemoveButton.click();
+    public void clickFirstItemRemoveButton() {
+        firstItemRemoveButton.click();
     }
 
     @Override
-    public boolean isEmptyBagMessageVisible() {
-        return emptyBagMessage.isVisible();
+    public boolean isEmptyBagMessagePresent() {
+        return emptyBagMessage.isElementPresent();
     }
 
     @Override
@@ -83,8 +83,8 @@ public class ShoppingBagPage extends ShoppingBagPageBase {
     }
 
     @Override
-    public boolean isContinueShoppingVisible() {
-        return continueShoppingButton.isVisible();
+    public boolean isContinueShoppingButtonPresent() {
+        return continueShoppingButton.isElementPresent();
     }
 
     @Override
@@ -104,7 +104,7 @@ public class ShoppingBagPage extends ShoppingBagPageBase {
 
     @Override
     public double getProductPrice() {
-        return Double.parseDouble(firstBagItemPrice.getText().replace("£", ""));
+        return Double.parseDouble(firstItemPrice.getText().replace("£", ""));
     }
 
     @Override

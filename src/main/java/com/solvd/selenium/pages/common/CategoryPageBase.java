@@ -13,7 +13,7 @@ public abstract class CategoryPageBase extends AbstractPage {
 
     public abstract String getPageTitle();
 
-    public abstract boolean areProductsVisible();
+    public abstract boolean areAllProductsPresent();
 
     public abstract boolean areFiltersVisible();
 

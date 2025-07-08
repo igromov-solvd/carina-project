@@ -13,36 +13,36 @@ public class ShoppingBagPage extends ShoppingBagPageBase {
     }
 
     @Override
-    public boolean isFirstBagItemVisible() {
+    public boolean isFirstItemPresent() {
         // TODO: implement logic
         return false;
     }
 
     @Override
-    public boolean isFirstBagItemPriceVisible() {
+    public boolean isFirstItemPricePresent() {
         // TODO: implement logic
         return false;
     }
 
     @Override
-    public boolean isFirstBagItemQuantityVisible() {
+    public boolean isFirstItemQuantityPresent() {
         // TODO: implement logic
         return false;
     }
 
     @Override
-    public boolean isFirstBagItemRemoveButtonVisible() {
+    public boolean isFirstItemRemoveButtonPresent() {
         // TODO: implement logic
         return false;
     }
 
     @Override
-    public void clickFirstBagItemRemoveButton() {
+    public void clickFirstItemRemoveButton() {
         // TODO: implement logic
     }
 
     @Override
-    public boolean isEmptyBagMessageVisible() {
+    public boolean isEmptyBagMessagePresent() {
         // TODO: implement logic
         return false;
     }
@@ -54,7 +54,7 @@ public class ShoppingBagPage extends ShoppingBagPageBase {
     }
 
     @Override
-    public boolean isContinueShoppingVisible() {
+    public boolean isContinueShoppingButtonPresent() {
         // TODO: implement logic
         return false;
     }

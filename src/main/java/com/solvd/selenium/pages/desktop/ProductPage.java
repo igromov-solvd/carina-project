@@ -66,7 +66,7 @@ public class ProductPage extends ProductPageBase {
     @FindBy(css = "div[data-testid='header-mini-shopping-bag']")
     private ExtendedWebElement addToBagConfirmation;
 
-    @FindBy(css = "div[data-testid='header-mini-shopping-bag'] > div > div > a[href='https://www.next.co.uk/shoppingbag']")
+    @FindBy(css = "div[data-testid='header-mini-shopping-bag'] > div > div > a[href$='/shoppingbag']")
     private ExtendedWebElement viewBagButton;
 
     @FindBy(css = "div[data-testid='minibag-adaptive-checkout'] > a")
@@ -74,7 +74,6 @@ public class ProductPage extends ProductPageBase {
 
     public ProductPage(WebDriver driver) {
         super(driver);
-        // waitForPageLoad();
     }
 
     @Override
@@ -84,48 +83,56 @@ public class ProductPage extends ProductPageBase {
     }
 
     @Override
-    public boolean isProductNameVisible() {
-        return productName.isVisible();
+    public boolean isProductNamePresent() {
+        return productName.isElementPresent();
     }
 
     @Override
-    public boolean isProductPriceVisible() {
-        return productPrice.isVisible();
+    public boolean isProductPricePresent() {
+        return productPrice.isElementPresent();
     }
 
     @Override
-    public boolean isProductDescriptionVisible() {
-        return productDescription.isVisible();
+    public boolean isProductDescriptionPresent() {
+        return productDescription.isElementPresent();
     }
 
     @Override
-    public boolean areProductImagesVisible() {
-        return !productImages.isEmpty() && productImages.get(0).isDisplayed();
+    public boolean areAllProductImagesPresent() {
+        if (productImages.isEmpty()) {
+            return false;
+        }
+        for (ExtendedWebElement image : productImages) {
+            if (!image.isElementPresent()) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
-    public boolean isSizeSelectionVisible() {
-        return sizeSelector.isVisible();
+    public boolean isSizeSelectorPresent() {
+        return sizeSelector.isElementPresent();
     }
 
     @Override
-    public boolean isColorSelectionVisible() {
-        return colorSelector.isVisible();
+    public boolean isColorSelectorPresent() {
+        return colorSelector.isElementPresent();
     }
 
     @Override
-    public boolean isAddToBagButtonVisible() {
-        return addToBagButton.isVisible();
+    public boolean isAddToBagButtonPresent() {
+        return addToBagButton.isElementPresent();
     }
 
     @Override
-    public boolean isFavouriteButtonVisible() {
-        return favouriteButton.isVisible();
+    public boolean isFavouriteButtonPresent() {
+        return favouriteButton.isElementPresent();
     }
 
     @Override
-    public boolean hasReviewsSection() {
-        return reviewsSection.isVisible();
+    public boolean isReviewsSectionPresent() {
+        return reviewsSection.isElementPresent();
     }
 
     @Override
@@ -149,13 +156,13 @@ public class ProductPage extends ProductPageBase {
     }
 
     @Override
-    public boolean isAddToBagConfirmationVisible() {
-        return addToBagConfirmation.isVisible();
+    public boolean isAddToBagConfirmationPresent() {
+        return addToBagConfirmation.isElementPresent();
     }
 
     @Override
-    public boolean isCheckoutButtonVisible() {
-        return checkoutButton.isVisible();
+    public boolean isCheckoutButtonPresent() {
+        return checkoutButton.isElementPresent();
     }
 
     @Override

@@ -82,13 +82,13 @@ public class SearchResultsPage extends SearchResultsPageBase {
     }
 
     @Override
-    public boolean areFiltersVisible() {
-        return filtersContainer.isVisible();
+    public boolean areFiltersPresent() {
+        return filtersContainer.isElementPresent();
     }
 
     @Override
-    public boolean isSortingVisible() {
-        return sortingContainer.isVisible();
+    public boolean isSortingPresent() {
+        return sortingContainer.isElementPresent();
     }
 
     @Override

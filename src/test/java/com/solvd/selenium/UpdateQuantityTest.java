@@ -54,8 +54,8 @@ public class UpdateQuantityTest extends BaseTest {
         productPage.clickAddToBag();
 
         // Verify confirmation
-        Assert.assertTrue(productPage.isAddToBagConfirmationVisible(),
-                "Add to bag confirmation should be visible");
+        Assert.assertTrue(productPage.isAddToBagConfirmationPresent(),
+                "Add to bag confirmation should be present");
 
         // View bag from confirmation
         ShoppingBagPageBase shoppingBagPage = productPage.clickViewBagButton();

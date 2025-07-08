@@ -19,9 +19,9 @@ public abstract class SearchResultsPageBase extends AbstractPage {
 
     public abstract String getPageTitleText();
 
-    public abstract boolean areFiltersVisible();
+    public abstract boolean areFiltersPresent();
 
-    public abstract boolean isSortingVisible();
+    public abstract boolean isSortingPresent();
 
     public abstract boolean areProductPricesPresent();
 

@@ -26,7 +26,7 @@ public class CategoryPage extends CategoryPageBase {
     }
 
     @Override
-    public boolean areProductsVisible() {
+    public boolean areAllProductsPresent() {
         // TODO: implement logic
         return false;
     }

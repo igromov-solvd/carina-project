@@ -1,13 +1,7 @@
 package com.solvd.selenium.pages.desktop;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,16 +26,13 @@ public class HomePage extends HomePageBase {
     @FindBy(css = "button[data-testid='header-search-bar-button']")
     private ExtendedWebElement searchButton;
 
-    // @FindBy(css = "button#onetrust-accept-btn-handler")
-    // private ExtendedWebElement acceptCookiesButton;
-
     @FindBy(css = "a[href='/delivery-service-local-store'] > span")
     private ExtendedWebElement deliveryTitle;
 
-    @FindBy(css = "a[href='https://www.next.co.uk/storelocator']")
+    @FindBy(css = "a[href$='/storelocator']")
     private ExtendedWebElement storeLocatorLink;
 
-    @FindBy(css = "a[href='https://www.next.co.uk/help']")
+    @FindBy(css = "a[href$='/help']")
     private ExtendedWebElement helpLink;
 
     @FindBy(css = "div[data-testid='header-adaptive-brand']")
@@ -106,8 +97,8 @@ public class HomePage extends HomePageBase {
     }
 
     @Override
-    public boolean isDeliveryTitleVisible() {
-        return deliveryTitle.isVisible();
+    public boolean isDeliveryTitlePresent() {
+        return deliveryTitle.isElementPresent();
     }
 
     @Override
@@ -116,48 +107,56 @@ public class HomePage extends HomePageBase {
     }
 
     @Override
-    public boolean isStoreLocatorVisible() {
-        return storeLocatorLink.isVisible();
+    public boolean isStoreLocatorPresent() {
+        return storeLocatorLink.isElementPresent();
     }
 
     @Override
-    public boolean isHelpLinkVisible() {
-        return helpLink.isVisible();
+    public boolean isHelpLinkPresent() {
+        return helpLink.isElementPresent();
     }
 
     @Override
-    public boolean isLogoVisible() {
-        return logo.isVisible();
+    public boolean isLogoPresent() {
+        return logo.isElementPresent();
     }
 
     @Override
-    public boolean isSearchBarVisible() {
-        return searchBar.isVisible();
+    public boolean isSearchBarPresent() {
+        return searchBar.isElementPresent();
     }
 
     @Override
-    public boolean isAccountIconVisible() {
-        return accountIcon.isVisible();
+    public boolean isAccountIconPresent() {
+        return accountIcon.isElementPresent();
     }
 
     @Override
-    public boolean isFavoritesIconVisible() {
-        return favoritesIcon.isVisible();
+    public boolean isFavoritesIconPresent() {
+        return favoritesIcon.isElementPresent();
     }
 
     @Override
-    public boolean isShoppingBagIconVisible() {
-        return shoppingBagIcon.isVisible();
+    public boolean isShoppingBagIconPresent() {
+        return shoppingBagIcon.isElementPresent();
     }
 
     @Override
-    public boolean isCheckoutButtonVisible() {
-        return checkoutButton.isVisible();
+    public boolean isCheckoutButtonPresent() {
+        return checkoutButton.isElementPresent();
     }
 
     @Override
-    public boolean isMainMenuVisible() {
-        return !mainMenuItems.isEmpty() && mainMenuItems.get(0).isDisplayed();
+    public boolean areAllMainMenuItemsPresent() {
+        if (mainMenuItems.isEmpty()) {
+            return false;
+        }
+        for (ExtendedWebElement item : mainMenuItems) {
+            if (!item.isElementPresent()) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
