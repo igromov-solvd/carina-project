@@ -9,7 +9,7 @@ public abstract class ProductPageBase extends AbstractPage {
         super(driver);
     }
 
-    public abstract ShoppingBagPageBase clickViewBagButton();
+    public abstract BagPageBase clickViewBagButton();
 
     public abstract void selectFirstAvailableSize();
 

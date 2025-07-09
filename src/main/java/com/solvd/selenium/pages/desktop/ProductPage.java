@@ -3,7 +3,7 @@ package com.solvd.selenium.pages.desktop;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import com.solvd.selenium.pages.common.ProductPageBase;
-import com.solvd.selenium.pages.common.ShoppingBagPageBase;
+import com.solvd.selenium.pages.common.BagPageBase;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.locator.Context;
 import com.zebrunner.carina.utils.R;
@@ -77,9 +77,9 @@ public class ProductPage extends ProductPageBase {
     }
 
     @Override
-    public ShoppingBagPageBase clickViewBagButton() {
+    public BagPageBase clickViewBagButton() {
         viewBagButton.click();
-        return initPage(getDriver(), ShoppingBagPageBase.class);
+        return initPage(getDriver(), BagPageBase.class);
     }
 
     @Override
@@ -137,6 +137,7 @@ public class ProductPage extends ProductPageBase {
 
     @Override
     public void selectFirstAvailableSize() {
+        waitForJSToLoad();
         if (sizeSelectorCombobox.isVisible()) {
             sizeSelectorCombobox.click();
             sizeSelectorComboboxList.isPresent();
