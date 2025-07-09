@@ -2,6 +2,7 @@ package com.solvd.selenium.pages.desktop;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
+
 import com.solvd.selenium.pages.common.ProductPageBase;
 import com.solvd.selenium.pages.common.BagPageBase;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
@@ -37,16 +38,16 @@ public class ProductPage extends ProductPageBase {
     private ExtendedWebElement sizeSelectorComboboxList;
 
     @Context(dependsOn = "sizeSelectorComboboxList")
-    @FindBy(xpath = "li[not(contains(., 'unavailable'))][1]")
-    private ExtendedWebElement firstAvailableSizeInComboboxList;
+    @FindBy(css = "li:not(.unavailable):nth-of-type(%d)")
+    private ExtendedWebElement availableSizeInComboboxList;
 
     @Context(dependsOn = "sizeSelector")
     @FindBy(css = "div[role='group']")
     private ExtendedWebElement sizeSelectorGroup;
 
     @Context(dependsOn = "sizeSelectorGroup")
-    @FindBy(css = "button:not(.unavailable):first-of-type")
-    private ExtendedWebElement firstAvailableSizeInGroup;
+    @FindBy(css = "button:not(.unavailable):nth-of-type(%d)")
+    private ExtendedWebElement availableSizeInGroup;
 
     @FindBy(css = "[data-testid='item-form-stock-status'] > p")
     private ExtendedWebElement inStock;
@@ -137,14 +138,17 @@ public class ProductPage extends ProductPageBase {
 
     @Override
     public void selectFirstAvailableSize() {
-        waitForJSToLoad();
+        selectAvailableSize(1);
+    }
+
+    private void selectAvailableSize(int index) {
         if (sizeSelectorCombobox.isVisible()) {
             sizeSelectorCombobox.click();
             sizeSelectorComboboxList.isPresent();
-            firstAvailableSizeInComboboxList.click();
+            availableSizeInComboboxList.format(index).click();
             sizeSelectorComboboxList.waitUntilElementDisappear(R.CONFIG.getInt("disappear_timeout"));
         } else if (sizeSelectorGroup.isVisible()) {
-            firstAvailableSizeInGroup.click();
+            availableSizeInGroup.format(index).click();
             inStock.isElementWithTextPresent("In stock");
         } else {
             throw new IllegalStateException("Size selector is not visible");
