@@ -31,11 +31,11 @@
         </classes>
     </test>
 
-    <test name="AddToBagTest">
+    <test name="BagTest">
         <parameter name="category" value="Women" />
         <parameter name="subCategory" value="All Dresses" />
         <classes>
-            <class name="com.solvd.selenium.AddToBagTest" />
+            <class name="com.solvd.selenium.BagTest" />
         </classes>
     </test>
 
