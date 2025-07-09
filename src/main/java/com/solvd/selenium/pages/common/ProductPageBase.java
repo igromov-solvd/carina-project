@@ -7,6 +7,7 @@ public abstract class ProductPageBase extends AbstractPage {
 
     public ProductPageBase(WebDriver driver) {
         super(driver);
+        waitForJSToLoad();
     }
 
     public abstract BagPageBase clickViewBagButton();
