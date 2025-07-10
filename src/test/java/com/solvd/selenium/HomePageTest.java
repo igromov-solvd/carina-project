@@ -1,5 +1,6 @@
 package com.solvd.selenium;
 
+import com.solvd.selenium.components.HeaderComponent;
 import com.solvd.selenium.pages.common.HomePageBase;
 import com.zebrunner.agent.core.annotation.TestLabel;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
@@ -21,9 +22,9 @@ public class HomePageTest extends BaseTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
     private static final List<String> EXPECTED_CATEGORIES = Arrays.asList(
-            "women", "men", "boys", "girls", "home", "baby",
-            "furniture", "holiday", "school", "brands", "beauty", "gifts",
-            "sports", "sale");
+            "Women", "Men", "Boys", "Girls", "Home", "Baby",
+            "Furniture", "Holiday", "School", "Brands", "Beauty", "Gifts",
+            "Sports", "Sale");
 
     /**
      * NEXT_001 - Verify Homepage Load and Essential Elements
@@ -41,36 +42,37 @@ public class HomePageTest extends BaseTest {
         LOGGER.info("Starting homepage elements verification test");
 
         HomePageBase homePage = navigateToHomePage();
+        HeaderComponent header = homePage.getHeader();
 
-        verifyDeliverySection(homePage);
-        verifyHeaderElements(homePage);
-        verifyMainMenuCategories(homePage);
+        verifyDeliverySection(header);
+        verifyHeaderElements(header);
+        verifyMainMenuCategories(header);
 
         LOGGER.info("Homepage elements verification test completed successfully");
     }
 
-    private void verifyDeliverySection(HomePageBase homePage) {
-        Assert.assertTrue(homePage.isDeliveryTitlePresent(), "Delivery title should be present");
-        Assert.assertEquals(homePage.getDeliveryTitleText(),
+    private void verifyDeliverySection(HeaderComponent header) {
+        Assert.assertTrue(header.isDeliveryTitlePresent(), "Delivery title should be present");
+        Assert.assertEquals(header.getDeliveryTitleText(),
                 "Next day delivery to home or free to store*",
                 "Delivery title text is incorrect");
     }
 
-    private void verifyHeaderElements(HomePageBase homePage) {
+    private void verifyHeaderElements(HeaderComponent header) {
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(homePage.isStoreLocatorPresent(), "Store Locator link should be present");
-        softAssert.assertTrue(homePage.isHelpLinkPresent(), "Help link should be present");
-        softAssert.assertTrue(homePage.isLogoPresent(), "Next logo should be present");
-        softAssert.assertTrue(homePage.isSearchBarPresent(), "Search bar should be present");
-        softAssert.assertTrue(homePage.isAccountIconPresent(), "Account icon should be present");
-        softAssert.assertTrue(homePage.isFavoritesIconPresent(), "Favorites icon should be present");
-        softAssert.assertTrue(homePage.isShoppingBagIconPresent(), "Shopping bag icon should be present");
-        softAssert.assertTrue(homePage.isCheckoutButtonPresent(), "Checkout button should be present");
+        softAssert.assertTrue(header.isStoreLocatorPresent(), "Store Locator link should be present");
+        softAssert.assertTrue(header.isHelpLinkPresent(), "Help link should be present");
+        softAssert.assertTrue(header.isLogoPresent(), "Next logo should be present");
+        softAssert.assertTrue(header.isSearchBarPresent(), "Search bar should be present");
+        softAssert.assertTrue(header.isAccountIconPresent(), "Account icon should be present");
+        softAssert.assertTrue(header.isFavoritesIconPresent(), "Favorites icon should be present");
+        softAssert.assertTrue(header.isShoppingBagIconPresent(), "Shopping bag icon should be present");
+        softAssert.assertTrue(header.isCheckoutButtonPresent(), "Checkout button should be present");
         softAssert.assertAll();
     }
 
-    private void verifyMainMenuCategories(HomePageBase homePage) {
-        Assert.assertEquals(homePage.getMainMenuCategoriesList(), EXPECTED_CATEGORIES,
+    private void verifyMainMenuCategories(HeaderComponent header) {
+        Assert.assertEquals(header.getMainMenuCategoriesList(), EXPECTED_CATEGORIES,
                 "Main menu categories are incorrect");
     }
 }

@@ -1,5 +1,6 @@
 package com.solvd.selenium;
 
+import com.solvd.selenium.components.ProductComponent;
 import com.solvd.selenium.pages.common.CategoryPageBase;
 import com.solvd.selenium.pages.common.HomePageBase;
 import com.solvd.selenium.pages.common.ProductPageBase;
@@ -44,27 +45,41 @@ public class ProductDetailPageTest extends BaseTest {
         HomePageBase homePage = navigateToHomePage();
 
         // Hover over Women category
-        CategoryPageBase categoryPage = homePage.hoverOverMainCategoryAndClick(category, subCategory);
+        CategoryPageBase categoryPage = homePage.getHeader()
+                .hoverOverMainCategoryAndClick(category, subCategory);
         Assert.assertNotNull(categoryPage, "Category page should not be null");
 
         // Click on first product
         ProductPageBase productPage = categoryPage.clickFirstProduct();
+        ProductComponent productComponent = productPage.getProduct();
+        Assert.assertNotNull(productComponent, "Product component should not be null");
 
-        verifyProductDetails(productPage);
+        verifyProductDetails(productComponent);
         LOGGER.info("Product detail page test completed successfully");
     }
 
-    private void verifyProductDetails(ProductPageBase productPage) {
+    private void verifyProductDetails(ProductComponent productComponent) {
         SoftAssert softAssert = new SoftAssert();
-        softAssert.assertTrue(productPage.isProductNamePresent(), "Product name should be present");
-        softAssert.assertTrue(productPage.isProductPricePresent(), "Product price should be present");
-        softAssert.assertTrue(productPage.isProductDescriptionPresent(), "Product description should be present");
-        softAssert.assertTrue(productPage.areAllProductImagesPresent(), "Product images should be present");
-        softAssert.assertTrue(productPage.isSizeSelectorPresent(), "Size selection should be available");
-        softAssert.assertTrue(productPage.isColorSelectorPresent(), "Color selection should be available");
-        softAssert.assertTrue(productPage.isAddToBagButtonPresent(), "Add to Bag button should be present");
-        softAssert.assertTrue(productPage.isFavouriteButtonPresent(), "Favourite button should be present");
-        softAssert.assertTrue(productPage.isReviewsSectionPresent(), "Reviews section should be present if available");
+
+        softAssert.assertTrue(productComponent.isProductNamePresent(),
+                "Product name should be present");
+        softAssert.assertTrue(productComponent.isProductPricePresent(),
+                "Product price should be present");
+        softAssert.assertTrue(productComponent.isReviewsSectionPresent(),
+                "Reviews section should be present if available");
+        softAssert.assertTrue(productComponent.areAllProductImagesPresent(),
+                "Product images should be present");
+        softAssert.assertTrue(productComponent.isSizeSelectorPresent(),
+                "Size selection should be available");
+        softAssert.assertTrue(productComponent.isColorSelectorPresent(),
+                "Color selection should be available");
+        softAssert.assertTrue(productComponent.isAddToBagButtonPresent(),
+                "Add to Bag button should be present");
+        softAssert.assertTrue(productComponent.isFavouriteButtonPresent(),
+                "Favourite button should be present");
+        softAssert.assertTrue(productComponent.isProductDescriptionPresent(),
+                "Product description should be present");
+
         softAssert.assertAll();
     }
 }

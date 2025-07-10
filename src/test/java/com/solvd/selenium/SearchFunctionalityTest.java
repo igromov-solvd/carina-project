@@ -35,7 +35,7 @@ public class SearchFunctionalityTest extends BaseTest {
         LOGGER.info("Starting search functionality test for: {}", searchTerm);
 
         HomePageBase homePage = navigateToHomePage();
-        SearchResultsPageBase searchResultsPage = homePage.searchForProduct(searchTerm);
+        SearchResultsPageBase searchResultsPage = homePage.getHeader().searchForProduct(searchTerm);
 
         // Verify search results page
         String pageTitle = searchResultsPage.getPageTitleText();
