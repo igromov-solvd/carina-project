@@ -29,7 +29,8 @@ public class ProductSearchTest extends BaseTest {
 
         HomePageBase homePage = navigateToHomePage();
 
-        SearchResultsPageBase searchResultsPage = homePage.searchForProduct(searchTerm);
+        SearchResultsPageBase searchResultsPage = homePage.getHeader()
+                .searchForProduct(searchTerm);
 
         List<String> productTitles = searchResultsPage.getProductTitles();
         Assert.assertFalse(productTitles.isEmpty(),

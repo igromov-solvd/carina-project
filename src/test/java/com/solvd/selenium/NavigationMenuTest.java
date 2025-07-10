@@ -45,7 +45,8 @@ public class NavigationMenuTest extends BaseTest {
         HomePageBase homePage = navigateToHomePage();
 
         // Hover over Women category
-        CategoryPageBase categoryPage = homePage.hoverOverMainCategoryAndClick(category, subCategory);
+        CategoryPageBase categoryPage = homePage.getHeader()
+                .hoverOverMainCategoryAndClick(category, subCategory);
         Assert.assertNotNull(categoryPage, "Category page should not be null");
 
         verifyCategoryPageElements(categoryPage, expectedTitle);

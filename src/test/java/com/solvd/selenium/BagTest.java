@@ -4,6 +4,7 @@ import com.solvd.selenium.pages.common.CategoryPageBase;
 import com.solvd.selenium.pages.common.HomePageBase;
 import com.solvd.selenium.pages.common.ProductPageBase;
 import com.solvd.selenium.components.BagItemComponent;
+import com.solvd.selenium.components.ProductComponent;
 import com.solvd.selenium.pages.common.BagPageBase;
 import com.zebrunner.agent.core.annotation.TestLabel;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
@@ -34,12 +35,15 @@ public class BagTest extends BaseTest {
         LOGGER.info("Setting up initial bag state");
 
         HomePageBase homePage = navigateToHomePage();
-        CategoryPageBase categoryPage = homePage.hoverOverMainCategoryAndClick(category, subCategory);
+        CategoryPageBase categoryPage = homePage.getHeader()
+                .hoverOverMainCategoryAndClick(category, subCategory);
         Assert.assertNotNull(categoryPage, "Category page should not be null");
 
         ProductPageBase productPage = categoryPage.clickFirstProduct();
-        productPage.selectFirstAvailableSize();
-        productPage.clickAddToBag();
+        ProductComponent productComponent = productPage.getProduct();
+        Assert.assertNotNull(productComponent, "Product component should not be null");
+        productComponent.selectFirstAvailableSize();
+        productComponent.clickAddToBag();
         Assert.assertTrue(productPage.isAddToBagConfirmationPresent(),
                 "Add to bag confirmation should be present");
 
